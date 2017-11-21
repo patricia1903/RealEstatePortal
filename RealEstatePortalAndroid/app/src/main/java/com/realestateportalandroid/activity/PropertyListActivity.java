@@ -1,6 +1,7 @@
 package com.realestateportalandroid.activity;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -8,6 +9,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -40,6 +42,25 @@ public class PropertyListActivity extends AppCompatActivity {
 
         arrayAdapter = new PropertyListAdapter(this, properties);
         listView.setAdapter(arrayAdapter);
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Property property = arrayAdapter.getItem(i);
+                Intent intent = new Intent(view.getContext(), PropertyDetailsActivity.class);
+                intent.putExtra("property", property);
+                startActivity(intent);
+            }
+        });
+    }
+
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        properties = PropertyList.getProperties();
+        arrayAdapter.notifyDataSetChanged();
     }
 
 
