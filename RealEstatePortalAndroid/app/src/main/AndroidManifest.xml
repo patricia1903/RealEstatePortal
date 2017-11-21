@@ -18,6 +18,7 @@
         </activity>
         <activity android:name=".activity.PropertyListActivity"/>
         <activity android:name=".activity.PropertyDetailsActivity"/>
+        <activity android:name=".activity.MailActivity"/>
     </application>
 
 </manifest>

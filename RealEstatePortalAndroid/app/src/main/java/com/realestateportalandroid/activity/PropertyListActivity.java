@@ -49,19 +49,25 @@ public class PropertyListActivity extends AppCompatActivity {
                 Property property = arrayAdapter.getItem(i);
                 Intent intent = new Intent(view.getContext(), PropertyDetailsActivity.class);
                 intent.putExtra("property", property);
-                startActivity(intent);
+                startActivityForResult(intent,1);
+            }
+        });
+
+
+        findViewById(R.id.contactUs).setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                startActivity(new Intent(v.getContext(),MailActivity.class));
             }
         });
     }
 
-
     @Override
-    protected void onResume() {
-        super.onResume();
-
-        properties = PropertyList.getProperties();
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode==1)
         arrayAdapter.notifyDataSetChanged();
     }
+
 
 
     private class PropertyListAdapter extends ArrayAdapter<Property> {

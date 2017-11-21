@@ -48,10 +48,13 @@ public class PropertyDetailsActivity extends AppCompatActivity {
                 p.setDescription(descriptionEditText.getText().toString());
                 p.setId(id.getText().toString());
                 p.setPrice(priceEditText.getText().toString());
+                p.setAddress(addressEditText.getText().toString());
+                p.setEmail(emailEditText.getText().toString());
+                p.setPhone(phoneEditText.getText().toString());
+
                 PropertyList.updateProperties(p);
 
                 finish();
-
             }
         });
     }
