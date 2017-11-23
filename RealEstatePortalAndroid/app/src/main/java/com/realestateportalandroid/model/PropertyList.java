@@ -17,7 +17,7 @@ public class PropertyList {
     }
 
 
-    public static void updateProperties(Property p) {
+    public  void updateProperties(Property p) {
         for (Property property : properties) {
             if (property.getId().equals(p.getId())) {
                 property.setAddress(p.getEmail());

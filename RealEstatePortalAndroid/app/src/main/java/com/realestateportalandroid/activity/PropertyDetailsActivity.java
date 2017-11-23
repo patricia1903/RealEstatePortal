@@ -52,7 +52,7 @@ public class PropertyDetailsActivity extends AppCompatActivity {
                 p.setEmail(emailEditText.getText().toString());
                 p.setPhone(phoneEditText.getText().toString());
 
-                PropertyList.updateProperties(p);
+                new PropertyList().updateProperties(p);
 
                 finish();
             }
