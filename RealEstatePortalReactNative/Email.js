@@ -8,8 +8,6 @@ export default class Email extends React.Component {
         title: 'Mail',
     };
 
-
-
     constructor(props) {
         super(props);
         this.state = {message: ''}
@@ -18,13 +16,15 @@ export default class Email extends React.Component {
     render() {
         return <View>
             <TextInput
+                style={{marginTop:50,marginBottom:50}}
                 placeholder={"Message"}
                 onChangeText={(message) => this.setState({message: message})}
             />
             <Button
+                style={{height:50}}
                 title={"Send"}
                 onPress={() => {
-                    Communications.email(['ardelean.patricia@gmail.com'], null, null, null, 'Zzzzzz');
+                    Communications.email(['ardelean.patricia@gmail.com'], null, null, null, this.state.message);
                 }}
             />
         </View>

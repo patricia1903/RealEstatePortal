@@ -1,6 +1,5 @@
 import * as React from "react";
-import {ListView, Button, Text, View} from "react-native";
-import {NavigationScreenProp as navigate} from "./node_modules/react-navigation/lib-rn/TypeDefinition";
+import {Button, ListView, Text, View} from "react-native";
 
 export default class ListScreen extends React.Component {
     static navigationOptions = {
@@ -38,7 +37,8 @@ export default class ListScreen extends React.Component {
         const {navigate} = this.props.navigation;
         return (
             <View>
-                <Text>{item.title}</Text>
+                <Text
+                    style={{fontSize: 30}}>{item.title}</Text>
                 <Button
                     title='Update'
                     onPress={() => navigate('Details', {item, onSelect: this.onSelect})}/>
@@ -61,9 +61,11 @@ export default class ListScreen extends React.Component {
             <View>
                 <Button
                     title={"Contact Us"}
-                    onPress={()=> navigate('Mail')}
+                    onPress={() => this.props.navigation.navigate('Mail')}
                 />
+
                 <ListView
+                    style={{marginTop: 50}}
                     dataSource={this.state.dataSource}
                     renderRow={(rowData) => this.renderItem(rowData)}
                 />
