@@ -11,7 +11,5 @@ Every property can be rated(1-10). A chart will be displayed for each property d
 The exact address of the property will be provided in order to be correctly localized on Google Maps.
 To be able to use the application, a user must be logged in. To be able to post a property the user must be logged in as a landlord. Users logged in as customers cannot post properties. 
 
-Name: Patricia Ardelean
-Group: 932
-Email: apie1855@scs.ubbcluj.ro
+
 
